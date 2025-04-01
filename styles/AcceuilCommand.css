@@ -1,0 +1,365 @@
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Variables de couleurs */
+:root {
+    --couleur-primaire: #f05033; /* Couleur orange-rouge de Git */
+    --couleur-secondaire: #3e2c00; /* Couleur marron de Git */
+    --couleur-fond: #f7f7f7; /* Fond gris clair */
+    --couleur-carte: #ffffff; /* Fond blanc pour les cartes */
+    --couleur-texte: #333333; /* Texte gris foncé */
+    --couleur-texte-clair: #666666; /* Texte gris moyen */
+    --couleur-bordure: #e0e0e0; /* Bordure gris clair */
+    --couleur-survol: #f0f0f0; /* Couleur de survol gris très clair */
+}
+
+/* Styles pour l'en-tête */
+.entete {
+    background: linear-gradient(135deg, #f05033 0%, #bd3e2a 100%);
+    color: white;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.entete-superieur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.logo-conteneur {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-git {
+    height: 50px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.titre-site {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.navigation {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.lien-nav {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.lien-nav:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lien-nav.actif {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+.barre-recherche-conteneur {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.barre-recherche {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.champ-recherche {
+    flex-grow: 1;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.bouton-recherche {
+    background-color: #3e2c00;
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.bouton-recherche:hover {
+    background-color: #594a26;
+}
+
+/* Bannière */
+.banniere {
+    background: url('assets/images/git-banner-bg.jpg') center/cover;
+    background-color: #2b2b2b; /* Fallback */
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.banniere::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banniere-contenu {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titre-banniere {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sous-titre-banniere {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.bouton-decouvrir {
+    background-color: #f05033;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bouton-decouvrir:hover {
+    background-color: #d13518;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Conteneur principal */
+.conteneur {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Styles pour la grille de commandes */
+.grille-commandes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.categorie-commande {
+    margin-bottom: 1rem;
+}
+
+.categorie-commande h3 {
+    color: var(--couleur-secondaire);
+    border-bottom: 2px solid var(--couleur-primaire);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.cartes-commandes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Styles pour les cartes de commandes */
+.carte-commande {
+    background-color: var(--couleur-carte);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.carte-commande:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carte-en-tete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--couleur-fond);
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.carte-en-tete h4 {
+    margin: 0;
+    color: var(--couleur-primaire);
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+}
+
+.icone-commande {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(240, 80, 51, 0.1);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.icone-commande img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carte-contenu {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.carte-contenu p {
+    margin: 0;
+    line-height: 1.5;
+    color: var(--couleur-texte);
+}
+
+.carte-pied {
+    padding: 1rem;
+    background-color: var(--couleur-fond);
+    border-top: 1px solid var(--couleur-bordure);
+    text-align: center;
+}
+
+.bouton-details {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--couleur-primaire);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.bouton-details:hover {
+    background-color: var(--couleur-secondaire);
+}
+
+/* Pied de page */
+.pied-de-page {
+    background-color: #2b2b2b;
+    color: #fff;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.pied-de-page .conteneur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pied-de-page a {
+    color: #f05033;
+    text-decoration: none;
+}
+
+.pied-de-page a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .entete-superieur {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .navigation {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .titre-banniere {
+        font-size: 2rem;
+    }
+    
+    .sous-titre-banniere {
+        font-size: 1rem;
+    }
+
+    .cartes-commandes {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .pied-de-page .conteneur {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartes-commandes {
+        grid-template-columns: 1fr;
+    }
+    
+    .carte-en-tete {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
