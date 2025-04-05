@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la commande git reset --hard'commit'</title>
+    <link rel="stylesheet" href="../styles/commands.css">
+</head>
+<body>
+    <header>
+        <h1>Commande Git :git reset --hard'commit'</h1>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../AcceilCommand.html">Commandes</a>
+            <a href="../about.html">À propos</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Description</h2>
+            <p>La commande <code>git reset --hard'commit'</code> permet de revenir à un ancien état du projet, en effaçant complètement les modifications faites après un certain commit. </p>
+        </section>
+        <section>
+            <h2>Exemple d'utilisation</h2>
+            <pre><code>
+            $git reset --hard'commit' https://github.com/utilisateur/projet.git
+            </code></pre>
+            <p><ul> Décomposition de la commande :</ul>
+            <li>git reset : Repositionne l’historique (HEAD) sur un commit spécifique.</li>
+            <li>--hard : Supprime aussi les fichiers modifiés dans le dossier de travail et dans la zone de staging.</li>
+            <li>'commit' : L’ID (ou hash) du commit vers lequel tu veux revenir</li>
+            </p>
+        </section>
+        <section>
+            <h2>Exemple visuel</h2>
+            <img src="../assets/screenshots/git reset --hard'commit'png" alt="Exemple de git reset --hard'commit'" class="screenshot">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Projet Collaboratif - Commandes Git. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

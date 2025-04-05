@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la commande git push -u origin 'branch'.</title>
+    <link rel="stylesheet" href="../styles/commands.css">
+</head>
+<body>
+    <header>
+        <h1>Commande Git :git push -u origin 'branch'.</h1>
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../AcceilCommand.html">Commandes</a>
+            <a href="../about.html">À propos</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Description</h2>
+            <p>La commande <code>git push -u origin 'branch' </code> permet d'envoyer la branche locale (et ses commits) vers le dépôt distant (souvent sur GitHub), pour la première fois.</p>
+        </section>
+        <section>
+            <h2>Exemple d'utilisation</h2>
+            <pre><code>
+        $ git push -u origin 'branch'  https://github.com/utilisateur/projet.git
+            </code></pre>
+            <p>La décomposition de git push -u origin 'branch' :
+                <ul>
+                 <li>git push → envoie tes commits vers le dépôt distant.</li>
+                 <li>origin → nom du dépôt distant (par défaut, c’est souvent origin).</li>
+                 <li>nom-de-branche → la branche que tu veux pousser (ex : main, develop, feature-login...).
+
+                 </li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h2>Exemple visuel</h2>
+            <img src="../assets/screenshots/ git push -u origin 'branch' -example.png" alt="Exemple de git push -u origin 'branch' " class="screenshot">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Projet Collaboratif - Commandes Git. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
