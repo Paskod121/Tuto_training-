@@ -1,0 +1,357 @@
+/* Animations et transitions pour le JavaScript */
+
+/* Animation au chargement de la page */
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+body.charge {
+    opacity: 1;
+}
+
+/* Animation séquentielle des éléments */
+.hero-title, .hero-description, .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-title.anime, .hero-description.anime, .cta-button.anime {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du bouton d'action */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    z-index: 1;
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.cta-button.survol:before {
+    left: 100%;
+}
+
+/* Animation de la barre de recherche */
+.search-form {
+    transition: box-shadow 0.3s ease;
+}
+
+.search-form.active {
+    box-shadow: 0 0 15px rgba(240, 95, 64, 0.6);
+}
+
+.search-input {
+    transition: background-color 0.3s ease;
+}
+
+.search-button {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.search-button:hover:before {
+    left: 100%;
+}
+
+/* Animation lors de la recherche */
+.search-button.recherche-en-cours {
+    background-color: #594025;
+    position: relative;
+}
+
+.search-button.recherche-en-cours:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: tourner 0.8s linear infinite;
+}
+
+@keyframes tourner {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Animation de secousse pour champ vide */
+.search-input.secouer {
+    animation: secouer 0.4s ease-in-out;
+}
+
+@keyframes secouer {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+/* Animation des éléments au défilement */
+.animer-au-defilement {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animer-au-defilement.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Transition lors de la sortie */
+.transition-sortie {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Adaptation responsive des animations */
+@media screen and (max-width: 768px) {
+    .hero-title, .hero-description, .cta-button {
+        transform: translateY(10px);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.6;
+    color: white;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- CONTENEUR PRINCIPAL CLIQUABLE --- */
+.landing-container {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+}
+
+/* --- HEADER --- */
+.header {
+    background-color: #d94a33;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50;
+    overflow: hidden;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 2px 4px 3px rgb(0, 2, 11);
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-link.active {
+    background-color: #fff;
+    color: #d94a33;
+}
+
+/* --- BARRE DE RECHERCHE --- */
+.search-container {
+    background-color: #c7442d;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    width: 80%;
+    max-width: 800px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-button {
+    padding: 0 25px;
+    background-color: #33230d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* --- CONTENU PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover;
+    transition: transform 0.3s ease;
+}
+
+.landing-container:hover .main-content {
+    transform: scale(1.02);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.s1 {
+    font-size: 3rem;
+    color: #9d96f8;
+}
+.s2 {
+    font-size: 2rem;
+    color: #b5cef1;
+}
+.s3 {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.hero-description {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #f05f40;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #e04a2f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    padding: 20px 5%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
